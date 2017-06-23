@@ -1,0 +1,90 @@
+apply plugin: 'com.android.library'
+apply plugin: 'me.tatarka.retrolambda'
+apply plugin: 'de.mobilej.unmock'
+
+android {
+  compileSdkVersion rootProject.ext.androidCompileSdkVersion
+  buildToolsVersion rootProject.ext.androidBuildToolsVersion
+
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
+
+  defaultConfig {
+    minSdkVersion rootProject.ext.androidMinSdkVersion
+    targetSdkVersion rootProject.ext.androidTargetSdkVersion
+    versionCode rootProject.ext.releaseVersionCode
+    versionName rootProject.ext.releaseVersionName
+
+    testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+  }
+  buildTypes {
+    debug {
+    }
+    release {
+    }
+  }
+
+  packagingOptions {
+    exclude 'META-INF/LICENSE.txt'
+    exclude 'META-INF/services/javax.annotation.processing.Processor'
+  }
+}
+
+unMock {
+  downloadFrom 'https://oss.sonatype.org/content/groups/public/org/robolectric/android-all/6.0.0_r1-robolectric-0/android-all-6.0.0_r1-robolectric-0.jar'
+  downloadTo "${System.getenv('HOME')}/.gradle/caches/"
+
+  keep "android.os.Looper"
+  keep "android.content.ContentValues"
+  keepStartingWith "android.util."
+}
+
+dependencies {
+  compile deps.androidSupportAppCompatV7
+  provided deps.javaxAnnotation
+
+  compile deps.rxJava2
+  compile deps.rxAndroid2
+  compile deps.rxJava2Interop
+  compile deps.rxPreferences2
+  compile deps.rxJava
+  compile deps.rxAndroid
+
+  compile deps.eventBus
+
+  compile deps.gson
+  compile deps.okHttp
+  compile deps.retrofit
+  compile deps.retrofitGsonConverter
+  compile deps.retrofitRxJava2Adapter
+
+  compile deps.threetenabp
+
+  compile deps.timber
+  compile deps.okHttpLogging
+  compile deps.ok2Curl
+  compile deps.stethoOkhttp
+
+  provided deps.immutables
+  provided deps.immutablesBuilder
+  provided deps.immutablesGson
+  annotationProcessor deps.apt.immutablesApt
+
+  compile deps.streamSupport
+  compile deps.streamSupportCFuture
+  compile deps.streamSupportAtomic
+  compile deps.streamSupportFlow
+  compile deps.streamSupportLiteral
+
+  retrolambdaConfig deps.apt.retrolambda
+
+  testCompile deps.test.hamcrestLibrary
+  testCompile(deps.test.junit) {
+    exclude module: 'hamcrest-core'
+  }
+  testCompile deps.test.mockito
+  testCompile deps.test.mockWebServer
+}
