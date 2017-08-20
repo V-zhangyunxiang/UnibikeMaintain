@@ -1,59 +1,67 @@
 apply plugin: 'com.android.application'
 apply plugin: 'me.tatarka.retrolambda'
-apply plugin: 'de.mobilej.unmock'
 
 android {
-  compileSdkVersion rootProject.ext.androidCompileSdkVersion
-  buildToolsVersion rootProject.ext.androidBuildToolsVersion
-
-  compileOptions {
-    sourceCompatibility JavaVersion.VERSION_1_8
-    targetCompatibility JavaVersion.VERSION_1_8
-  }
-
-  defaultConfig {
-    applicationId "me.unibike.citymaintain"
-    minSdkVersion rootProject.ext.androidMinSdkVersion
-    targetSdkVersion rootProject.ext.androidTargetSdkVersion
-    versionCode rootProject.ext.releaseVersionCode
-    versionName rootProject.ext.releaseVersionName
-
-    testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-  }
-
-  buildTypes {
-    debug {
-      buildConfigField "String", "API_BASE_URL", "\"http://dev.unibike.me/\""
+    signingConfigs {
+        config {
+            keyAlias 'Unibike2017'
+            keyPassword '19951124'
+            storeFile file('F:/unibike/android-city-maintain/YunWei.jks')
+            storePassword '19951124'
+        }
     }
-    release {
-      minifyEnabled false
-      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-
-      buildConfigField "String", "API_BASE_URL", "\"http://api.unibike.me/\""
+    compileSdkVersion rootProject.ext.androidCompileSdkVersion
+    buildToolsVersion rootProject.ext.androidBuildToolsVersion
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
-  }
-
-  packagingOptions {
-    exclude 'META-INF/LICENSE.txt'
-    exclude 'META-INF/NOTICE.txt'
-    exclude 'META-INF/services/javax.annotation.processing.Processor'
-    exclude 'META-INF/maven/com.google.dagger/dagger/pom.properties'
-    exclude 'META-INF/maven/com.google.dagger/dagger/pom.xml'
-    exclude 'META-INF/rxjava.properties'
-  }
-}
-
-unMock {
-  downloadFrom 'https://oss.sonatype.org/content/groups/public/org/robolectric/android-all/6.0.0_r1-robolectric-0/android-all-6.0.0_r1-robolectric-0.jar'
-  downloadTo "${System.getenv('HOME')}/.gradle/caches/"
-
-  keep "android.text.TextUtils"
-  keepStartingWith "org.json."
+    //减少对png图片的敏感程度
+    aaptOptions {
+        cruncherEnabled = false
+        useNewCruncher = false
+    }
+    defaultConfig {
+        applicationId "me.unibike.citymaintain"
+        minSdkVersion rootProject.ext.androidMinSdkVersion
+        targetSdkVersion rootProject.ext.androidTargetSdkVersion
+        versionCode rootProject.ext.releaseVersionCode
+        versionName rootProject.ext.releaseVersionName
+        multiDexEnabled true
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        debug {
+            zipAlignEnabled true
+            signingConfig signingConfigs.config
+            buildConfigField "String", "API_BASE_URL", "\"http://dev.unibike.me/admin/\""
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "API_BASE_URL", "\"http://api.unibike.me/admin/\""
+        }
+    }
+    packagingOptions {
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/services/javax.annotation.processing.Processor'
+        exclude 'META-INF/maven/com.google.dagger/dagger/pom.properties'
+        exclude 'META-INF/maven/com.google.dagger/dagger/pom.xml'
+        exclude 'META-INF/rxjava.properties'
+    }
 }
 
 dependencies {
-  compile project(':module-base')
-  compile 'com.android.support.constraint:constraint-layout:1.0.2'
-
-  retrolambdaConfig deps.apt.retrolambda
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile project(':module-base')
+    //retrolambdaConfig deps.apt.retrolambda compile project(':config')
+    compile project(':guavalite')
+    compile project(':lbs')
+    compile project(':lighter')
+    compile project(':network')
+    compile project(':unilock')
+    compile 'com.google.zxing:core:3.3.0'
+    compile 'com.android.support:multidex:1.0.0'
+    compile 'com.android.support:support-v4:25.3.1'
 }

@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="#ebebeb"
+              android:orientation="vertical"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#48D1CC"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="10dp"
+        >
+
+        <ImageView
+            android:id="@+id/img_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/abc_ic_ab_back_mtrl_am_alpha"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/string_bikeOperating"
+            android:layout_marginLeft="10dp"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            />
+    </LinearLayout>
+
+    <!--<RelativeLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:background="@android:color/white"-->
+    <!--android:padding="15dp"-->
+
+    <!--&gt;-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/bike_pwd"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:text="@string/string_password"-->
+    <!--/>-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/bike_num"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_toRightOf="@id/bike_pwd"-->
+    <!--android:text="  012234"-->
+    <!--/>-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/bike_status"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_below="@id/bike_pwd"-->
+    <!--android:layout_marginTop="15dp"-->
+    <!--android:text="@string/string_curStatus"-->
+    <!--/>-->
+
+    <!--<TextView-->
+    <!--android:id="@+id/status_tv"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignTop="@id/bike_status"-->
+    <!--android:layout_below="@id/bike_num"-->
+    <!--android:layout_toRightOf="@id/bike_status"-->
+    <!--android:text="  NORMAL"-->
+    <!--/>-->
+    <!--</RelativeLayout>-->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:background="@android:color/white"
+        android:paddingBottom="10dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="15dp"
+        >
+
+        <Button
+            android:id="@+id/con_ble"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#48D1CC"
+            android:gravity="center"
+            android:text="连接蓝牙"
+            android:textColor="@android:color/white"
+            />
+
+        <Button
+            android:id="@+id/bike_ringing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/con_ble"
+            android:layout_below="@id/con_ble"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/btn_press_state"
+            android:gravity="center"
+            android:text="@string/string_Ringing"
+            />
+
+        <Button
+            android:id="@+id/bike_light"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignRight="@id/con_ble"
+            android:layout_alignTop="@id/bike_ringing"
+            android:layout_below="@id/con_ble"
+            android:background="@drawable/btn_press_state"
+            android:gravity="center"
+            android:text="@string/string_flashingLights"
+            />
+
+        <Button
+            android:id="@+id/bike_openLock"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/bike_ringing"
+            android:layout_below="@id/bike_ringing"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/btn_press_state"
+            android:gravity="center"
+            android:text="@string/string_openUnlock"
+            />
+
+    </RelativeLayout>
+
+    <!--<Button-->
+    <!--android:id="@+id/change_status"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_marginTop="10dp"-->
+    <!--android:background="@android:color/white"-->
+    <!--android:text="@string/string_changeStatus"-->
+    <!--android:textColor="#48D1CC"-->
+    <!--/>-->
+
+</LinearLayout>

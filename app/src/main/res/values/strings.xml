@@ -1,3 +1,36 @@
 <resources>
-    <string name="app_name">UnibikeCityMaintain</string>
+    <string name="app_name">Android运维</string>
+    <string name="string_main">主界面</string>
+    <string name="string_work">工作台</string>
+    <string name="string_my">我的</string>
+
+    <string name="string_map">车辆地图</string>
+    <string name="string_smChaChe">扫码查车</string>
+    <string name="string_bhChaChe">编号查车</string>
+    <string name="string_gyCheLiang">干预车辆</string>
+
+    <string name="string_youNiDanChe">由你单车</string>
+    <string name="string_inputUsername">请输入用户名</string>
+    <string name="string_inputPassword">请输入密码</string>
+    <string name="string_login">登录</string>
+
+    <string name="string_bikeDetails">车辆详情</string>
+    <string name="string_bikeMap">车辆地图</string>
+    <string name="string_bikeOperating">车辆操作</string>
+    <string name="string_openUnlock">开锁</string>
+    <string name="string_flashingLights">闪灯</string>
+    <string name="string_Ringing">响铃</string>
+    <string name="string_password">密码:</string>
+    <string name="string_changeBikeStatus">更改车辆状态</string>
+    <string name="string_operating">运营中</string>
+    <string name="string_no_operating">非运营中</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!--<string name="encode_qrcode">生成二维码</string>-->
+    <!--<string name="dencode_qrcode">扫描二维码</string>-->
+    <!--<string name="code_text">请输入生成二维码的文本信息</string>-->
+    <!--<string name="qrcodetext">这里显示扫描结果</string>-->
+
 </resources>

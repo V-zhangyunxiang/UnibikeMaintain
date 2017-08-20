@@ -1,6 +1,5 @@
 apply plugin: 'com.android.library'
 apply plugin: 'me.tatarka.retrolambda'
-apply plugin: 'de.mobilej.unmock'
 
 android {
   compileSdkVersion rootProject.ext.androidCompileSdkVersion
@@ -31,15 +30,6 @@ android {
     exclude 'META-INF/LICENSE.txt'
     exclude 'META-INF/services/javax.annotation.processing.Processor'
   }
-}
-
-unMock {
-  downloadFrom 'https://oss.sonatype.org/content/groups/public/org/robolectric/android-all/6.0.0_r1-robolectric-0/android-all-6.0.0_r1-robolectric-0.jar'
-  downloadTo "${System.getenv('HOME')}/.gradle/caches/"
-
-  keep "android.os.Looper"
-  keep "android.content.ContentValues"
-  keepStartingWith "android.util."
 }
 
 dependencies {

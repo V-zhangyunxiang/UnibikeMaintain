@@ -1,1 +1,1 @@
-include ':app', ':module-base'
+include ':app', ':module-base', ':network', ':config', ':guavalite', ':lighter', ':lbs', ':unilock'

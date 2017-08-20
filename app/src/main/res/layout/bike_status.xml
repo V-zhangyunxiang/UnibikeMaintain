@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:text="@string/string_changeBikeStatus"
+        />
+
+    <TextView
+        android:id="@+id/yunYing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/string_operating"
+        android:textColor="#00ff00"
+        android:textSize="20sp"
+        />
+
+    <RadioGroup
+        android:id="@+id/testFeaBikeStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        >
+
+        <RadioButton
+            android:id="@+id/opera_normal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:checked="true"
+            android:paddingRight="15dp"
+            android:drawableRight="@drawable/radiobtn_status"
+            android:text="运营中-正常"
+            android:background="@null"
+            android:textSize="17sp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/string_no_operating"
+            android:textColor="#ff0000"
+            android:textSize="20sp"
+            />
+
+        <RadioButton
+            android:id="@+id/no_opera_delay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:button="@null"
+            android:paddingRight="15dp"
+            android:drawableRight="@drawable/radiobtn_status"
+            android:text="非运营中-暂留"
+            android:background="@null"
+            android:textSize="17sp"
+            />
+
+        <RadioButton
+            android:id="@+id/no_opera_service"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:paddingRight="15dp"
+            android:button="@null"
+            android:background="@null"
+            android:drawableRight="@drawable/radiobtn_status"
+            android:text="非运营中-维修"
+            android:textSize="17sp"
+            />
+    </RadioGroup>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <Button
+        android:id="@+id/status_determine"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="#48D1CC"
+        android:gravity="center"
+        android:text="确定"
+        android:textColor="@android:color/white"
+        />
+
+
+</LinearLayout>
